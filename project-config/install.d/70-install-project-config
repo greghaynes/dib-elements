@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -eux
+
+cp -a /opt/stack/project-config/nodepool /etc/nodepool
+chown -R root:root /etc/nodepool
+chmod -R 0644 /etc/nodepool

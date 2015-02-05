@@ -1,0 +1,1 @@
+system-config git /opt/stack/system-config git://git.openstack.org/openstack-infra/system-config

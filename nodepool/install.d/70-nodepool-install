@@ -1,0 +1,4 @@
+#!/bin/bash
+set -eux
+
+os-svc-install $NODEPOOL_EXTRA_INSTALL_OPTS -i "$NODEPOOL_VENV_DIR" -u nodepool -r /opt/stack/nodepool
