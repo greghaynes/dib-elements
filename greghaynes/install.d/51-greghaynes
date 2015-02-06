@@ -1,5 +1,4 @@
 #!/bin/bash
-# Add the stack user we recommend folk use.
 
 set -eu
 set -o xtrace
