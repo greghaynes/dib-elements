@@ -1,0 +1,9 @@
+#!/bin/bash
+# Add the stack user we recommend folk use.
+
+set -eu
+set -o xtrace
+
+ln -s DotFiles/.tmux.conf ~greghaynes/.tmux.conf
+ln -s DotFiles/.zshrc ~greghaynes/.zshrc
+chown -R greghaynes:greghaynes ~greghaynes

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -eux
+set -o pipefail
+
+useradd -m ${DIB_DEV_USER_USERNAME} -s ${DIB_DEV_USER_SHELL}
+
+if [ -n "${DIB_DEV_USER_PWDLESS_SUDO}" ]; then
+    cat > /etc/sudoers.d/${DIB_DEV_USER_USERNAME} << EOF
+${DIB_DEV_USER_USERNAME} ALL=(ALL) NOPASSWD:ALL
+EOF
+    chmod 0440 /etc/sudoers.d/${DIB_DEV_USER_USERNAME}
+    visudo -c
+fi
+
+mkdir -p /home/${DIB_DEV_USER_USERNAME}/.ssh
+if [ -f /tmp/in_target.d/ssh-authorized-keys ]; then
+    cp /tmp/in_target.d/ssh-authorized-keys /home/${DIB_DEV_USER_USERNAME}/.ssh/authorized_keys
+fi
+
+chown -R ${DIB_DEV_USER_USERNAME}:${DIB_DEV_USER_USERNAME} /home/${DIB_DEV_USER_USERNAME}

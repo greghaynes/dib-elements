@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export DIB_DEV_USER_USERNAME=greghaynes
+export DIB_DEV_USER_SHELL=/bin/zsh
+export DIB_DEV_USER_PWDLESS_SUDO=1

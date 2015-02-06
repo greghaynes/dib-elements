@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -n "$DIB_DEV_USER_AUTHORIZED_KEYS" ]; then
+    cat $DIB_DEV_USER_AUTHORIZED_KEYS >> $TMP_HOOKS_PATH/devuser-ssh-authorized-keys
+fi
