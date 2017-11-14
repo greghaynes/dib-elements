@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
+    set -x
+fi
+set -eu
+set -o pipefail
+
+dest_dir="$TMP_MOUNT_PATH/tmp/dib-add-system-ca-certs"
+
+mkdir -p $dest_dir
+
+for ca_path in ${DIB_ADD_SYSTEM_CA_CERTS:-}; do
+    cp $ca_path $dest_dir
+done
